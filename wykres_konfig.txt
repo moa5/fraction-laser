@@ -1,0 +1,24 @@
+#Rozk³ad temperatury w walcu
+reset
+
+cd 'C:\Users\Shipp\Desktop\Nowy folder\in¿ynierka Moniosomka'
+
+set xrange [0.0:10.0]
+set yrange [0.0:10.1]
+set key top right box spacing 1.5
+set size ratio 9.0/16.0
+set xlabel "r"
+set ylabel "l"
+set zlabel "T"
+set title "Rozk³ad temperatury uzyskany metod¹ ró¿nic skoñczonych w zale¿noœci od wartoœci N"
+set xtics 0.0, 2.0, 10.0
+set ytics 0.0, 2.0, 10.0
+set ztics 0.0, 2.0, 10.0
+
+splot	"N10.txt" using 1:2:3 t "N 10" w points pointtype 12
+
+set terminal postscript color enhanced font "Times,24"
+set output "wykres.ps"
+replot
+set output
+set terminal wxt
