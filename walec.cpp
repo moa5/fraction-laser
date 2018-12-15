@@ -19,7 +19,7 @@ int main()
     double dx=l/d_n;            //szerokoœæ przedzia³ów d³ugoœci
     double dt=0.1*(dx*dx);      //szerokoœæ przedzia³ów czasowych z warunku stabilnoœci (5.68)
     //double dt=tau/m;
-    double dr=r/d_o;      //szerokoœæ przedzia³ów promiania z warunku stabilnoœci (5.68)???
+    double dr=r/d_o;       //szerokoœæ przedzia³ów promiania z warunku stabilnoœci (5.68)???
     
     d_m=tau/dt;
     //d_o=r/dr;
