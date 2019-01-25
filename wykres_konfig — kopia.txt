@@ -1,0 +1,28 @@
+#Rozklad temperatury w walcu
+reset
+
+#cd 'C:\Users\Shipp\Desktop\Nowy folder\in¿ynierka Moniosomka'
+
+set xrange [0.0:56e-5]
+set yrange [0.0:15e-4]
+set key top right box spacing 1.5
+set size ratio 3
+set xlabel "r [10^{-3} m]"
+set ylabel "z [10^{-3} m]"
+set zlabel "T [st. C]"
+set title "Rozklad temperatury w czasie "
+set ytics offset -2., 0.
+set xtics rotate 0.0, 1e-4, 56e-5
+set ytics out 0.0, 2e-4, 15e-4
+set ztics 37.0, 1e-4, 42.0
+
+set view map
+#set dgrid3d
+set pm3d interpolate 4,4
+splot	"parametry_skory_z_cieplem.txt" using 1:2:3 t "Z cieplem" with pm3d 
+
+set terminal postscript color enhanced font "Times,24"
+set output "z_cieplem.ps"
+replot
+set output
+set terminal wxt

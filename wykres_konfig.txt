@@ -1,24 +1,29 @@
-#Rozk³ad temperatury w walcu
+#Rozklad temperatury w walcu
 reset
 
-cd 'C:\Users\Shipp\Desktop\Nowy folder\in¿ynierka Moniosomka'
+#cd 'C:\Users\Shipp\Desktop\Nowy folder\in¿ynierka Moniosomka'
 
-set xrange [0.0:10.0]
-set yrange [0.0:10.1]
+set xrange [0.0:56e-5]
+set yrange [0.0:15e-4]
 set key top right box spacing 1.5
-set size ratio 9.0/16.0
+#set size ratio 9.0/16.0
+set size ratio 3
 set xlabel "r"
 set ylabel "l"
 set zlabel "T"
-set title "Rozk³ad temperatury uzyskany metod¹ ró¿nic skoñczonych w zale¿noœci od wartoœci N"
-set xtics 0.0, 2.0, 10.0
-set ytics 0.0, 2.0, 10.0
-set ztics 0.0, 2.0, 10.0
+set title "Rozklad temperatury uzyskany metod roznic skonczonych w zaleznosci od wartosci N"
+set xtics 0.0, 1e-4, 56e-5
+set ytics 0.0, 1e-4, 15e-4
+set ztics 37.0, 1e-4, 42.0
 
-splot	"N10.txt" using 1:2:3 t "N 10" w points pointtype 12
+set view map
+#set dgrid3d
+set pm3d interpolate 4,4
+splot	"parametry_skory_z_cieplem.txt" using 1:2:3 t "Z cieplem" with pm3d 
+#splot	"parametry_skory_z_cieplem.txt" using 1:2:3 t "Z cieplem" w points pointtype 12
 
 set terminal postscript color enhanced font "Times,24"
-set output "wykres.ps"
+set output "z_cieplem.ps"
 replot
 set output
 set terminal wxt
